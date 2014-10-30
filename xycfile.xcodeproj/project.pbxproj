@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5540E79D1A0229A400BBAFF7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540E79C1A0229A400BBAFF7 /* main.swift */; };
+		5540E7A61A0229CA00BBAFF7 /* xycfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 5540E7A41A0229CA00BBAFF7 /* xycfile.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,9 @@
 /* Begin PBXFileReference section */
 		5540E7991A0229A400BBAFF7 /* xycfile */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xycfile; sourceTree = BUILT_PRODUCTS_DIR; };
 		5540E79C1A0229A400BBAFF7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		5540E7A31A0229CA00BBAFF7 /* xycfile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xycfile-Bridging-Header.h"; sourceTree = "<group>"; };
+		5540E7A41A0229CA00BBAFF7 /* xycfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xycfile.c; sourceTree = "<group>"; };
+		5540E7A51A0229CA00BBAFF7 /* xycfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xycfile.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,9 @@
 			isa = PBXGroup;
 			children = (
 				5540E79C1A0229A400BBAFF7 /* main.swift */,
+				5540E7A41A0229CA00BBAFF7 /* xycfile.c */,
+				5540E7A51A0229CA00BBAFF7 /* xycfile.h */,
+				5540E7A31A0229CA00BBAFF7 /* xycfile-Bridging-Header.h */,
 			);
 			path = xycfile;
 			sourceTree = "<group>";
@@ -118,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5540E7A61A0229CA00BBAFF7 /* xycfile.c in Sources */,
 				5540E79D1A0229A400BBAFF7 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,14 +211,21 @@
 		5540E7A11A0229A400BBAFF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "xycfile/xycfile-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		5540E7A21A0229A400BBAFF7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "xycfile/xycfile-Bridging-Header.h";
 			};
 			name = Release;
 		};
