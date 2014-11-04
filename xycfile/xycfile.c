@@ -7,7 +7,6 @@
 //
 
 #include "xycfile.h"
-
 /*
  * private functions
  */
@@ -30,9 +29,8 @@ int xycfile_write_header(xycfile_t *file){
 /*
  * public functions
  */
-int xycfile_open(xycfile_t *file){
-    //TODO
-    file->rawfile=fopen(file->filepath, "r+");
+int xycfile_open(xycfile_t *file,char *mode){
+    file->rawfile=fopen(file->filepath, mode);
     if (file->rawfile==NULL) {
         return -1;
     }
@@ -45,19 +43,23 @@ int xycfile_close(xycfile_t *file){
 
 int xycfile_write(xycfile_t *file,xycfile_enc_dec_block_t *block){
     xycfile_enc_dec_block_t output;
-    file->encfunc(block,&output);
-    if (fwrite(&output, sizeof(output), 1, file->rawfile)!=sizeof(output)) {
-        return -1;
+    if(file->encfunc(block,&output)==0){
+        if (fwrite(&output, sizeof(output), 1, file->rawfile)!=sizeof(output)) {
+            return -1;
+        }
+    }else{
+        return -2;
     }
     return 0;
 }
 
 int xycfile_read(xycfile_t *file,xycfile_enc_dec_block_t *block){
     xycfile_enc_dec_block_t input;
-    file->encfunc(block,&input);
     if (fread(&input, sizeof(input), 1, file->rawfile)!=sizeof(input)) {
         return -1;
     }
-    file->decfunc(&input,block);
+    if (file->decfunc(&input,block)!=0) {
+        return -2;
+    }
     return 0;
 }

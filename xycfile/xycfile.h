@@ -19,6 +19,7 @@ typedef struct{
     int64_t updatetime;
     int8_t password[64];
     int8_t desc[1024];
+    int8_t uuid[16];
     int8_t xyc[13];
     int32_t contentlen;
 } xycfile_header_t;
@@ -27,7 +28,7 @@ typedef struct{
     int8_t data[4];
 } xycfile_enc_dec_block_t;
 
-typedef  void (*xycfile_enc_dec_func_t)(xycfile_enc_dec_block_t* input, xycfile_enc_dec_block_t* output);
+typedef  int (*xycfile_enc_dec_func_t)(xycfile_enc_dec_block_t* input, xycfile_enc_dec_block_t* output);
 
 typedef struct{
     xycfile_enc_dec_func_t encfunc;
@@ -36,8 +37,10 @@ typedef struct{
     FILE *rawfile;
     xycfile_header_t header;
 } xycfile_t;
-int xycfile_open(xycfile_t *file);
+int xycfile_open(xycfile_t *file,char *mode);
 int xycfile_close(xycfile_t *file);
+int xycfile_read_header(xycfile_t *file);
+int xycfile_write_header(xycfile_t *file);
 int xycfile_write(xycfile_t *file,xycfile_enc_dec_block_t *block);
 int xycfile_read(xycfile_t *file,xycfile_enc_dec_block_t *block);
 #endif /* defined(__xycfile__xycfile__) */
