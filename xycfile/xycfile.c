@@ -2,64 +2,34 @@
 //  xycfile.c
 //  xycfile
 //
-//  Created by pengyunchou on 14/10/30.
+//  Created by pengyunchou on 14/11/6.
 //  Copyright (c) 2014年 swift. All rights reserved.
 //
 
 #include "xycfile.h"
-/*
- * private functions
- */
-int xycfile_read_header(xycfile_t *file){
-    size_t size=fread(&(file->header), sizeof(file->header), 1, file->rawfile);
-    if (size!=sizeof(file->header)) {
-        return -1;
-    }
-    return 0;
+#include <string.h>
+int xycfile_open(xycfile_t *file,char *path,char *mode){
+    file->rawfile=fopen(path, mode);
+    memcpy(file->path, path, strlen(path));
+	return 0;
 }
-
 int xycfile_write_header(xycfile_t *file){
-    size_t size=fwrite(&(file->header), sizeof(file->header), 1, file->rawfile);
-    if (size!=sizeof(file->header)) {
-        return -1;
-    }
-    return 0;
+    return (int)fwrite(&(file->header), sizeof(file->header), 1, file->rawfile);
+}
+int xycfile_read_header(xycfile_t *file){
+    return (int)fread(&(file->header), sizeof(file->header), 1, file->rawfile);
 }
 
-/*
- * public functions
- */
-int xycfile_open(xycfile_t *file,char *mode){
-    file->rawfile=fopen(file->filepath, mode);
-    if (file->rawfile==NULL) {
-        return -1;
-    }
-    return 0;
+int xycfile_write(xycfile_t *file,int8_t *inupt,int len){
+    int8_t output[len];
+    file->encfunc(inupt,output);
+	return (int)fwrite(output, len, 1, file->rawfile);
 }
-
-int xycfile_close(xycfile_t *file){
-    return fclose(file->rawfile);
-}
-
-int xycfile_write(xycfile_t *file,xycfile_enc_dec_block_t *block){
-    xycfile_enc_dec_block_t output;
-    if(file->encfunc(block,&output)==0){
-        if (fwrite(&output, sizeof(output), 1, file->rawfile)!=sizeof(output)) {
-            return -1;
-        }
-    }else{
-        return -2;
-    }
-    return 0;
-}
-
-int xycfile_read(xycfile_t *file,xycfile_enc_dec_block_t *block){
-    xycfile_enc_dec_block_t input;
-    if (fread(&input, sizeof(input), 1, file->rawfile)!=sizeof(input)) {
-        return -1;
-    }
-    if (file->decfunc(&input,block)!=0) {
-        return -2;
-    }
-    return 0;
+int xycfile_read(xycfile_t *file,int8_t *output,int expected){
+    int8_t input[expected];
+    if(fread(input, expected, 1, file->rawfile)==expected){
+        file->decfunc(input,output);
+        return 0;
+    };
+    return -1;
 }

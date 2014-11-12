@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5540E7A61A0229CA00BBAFF7 /* xycfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 5540E7A41A0229CA00BBAFF7 /* xycfile.c */; };
+		5554B7F51A0B4B030001A569 /* xycfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 5554B7F31A0B4B030001A569 /* xycfile.c */; };
 		555ACC7C1A075F6D0003A938 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 555ACC7B1A075F6D0003A938 /* main.c */; };
 /* End PBXBuildFile section */
 
@@ -25,9 +25,8 @@
 
 /* Begin PBXFileReference section */
 		5540E7991A0229A400BBAFF7 /* xycfile */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xycfile; sourceTree = BUILT_PRODUCTS_DIR; };
-		5540E7A31A0229CA00BBAFF7 /* xycfile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xycfile-Bridging-Header.h"; sourceTree = "<group>"; };
-		5540E7A41A0229CA00BBAFF7 /* xycfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xycfile.c; sourceTree = "<group>"; };
-		5540E7A51A0229CA00BBAFF7 /* xycfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xycfile.h; sourceTree = "<group>"; };
+		5554B7F31A0B4B030001A569 /* xycfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xycfile.c; sourceTree = "<group>"; };
+		5554B7F41A0B4B030001A569 /* xycfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xycfile.h; sourceTree = "<group>"; };
 		555ACC7B1A075F6D0003A938 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,10 +60,9 @@
 		5540E79B1A0229A400BBAFF7 /* xycfile */ = {
 			isa = PBXGroup;
 			children = (
-				5540E7A41A0229CA00BBAFF7 /* xycfile.c */,
-				5540E7A51A0229CA00BBAFF7 /* xycfile.h */,
-				5540E7A31A0229CA00BBAFF7 /* xycfile-Bridging-Header.h */,
 				555ACC7B1A075F6D0003A938 /* main.c */,
+				5554B7F31A0B4B030001A569 /* xycfile.c */,
+				5554B7F41A0B4B030001A569 /* xycfile.h */,
 			);
 			path = xycfile;
 			sourceTree = "<group>";
@@ -125,8 +123,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5554B7F51A0B4B030001A569 /* xycfile.c in Sources */,
 				555ACC7C1A075F6D0003A938 /* main.c in Sources */,
-				5540E7A61A0229CA00BBAFF7 /* xycfile.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

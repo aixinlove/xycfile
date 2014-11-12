@@ -2,7 +2,7 @@
 //  xycfile.h
 //  xycfile
 //
-//  Created by pengyunchou on 14/10/30.
+//  Created by pengyunchou on 14/11/6.
 //  Copyright (c) 2014年 swift. All rights reserved.
 //
 
@@ -10,37 +10,25 @@
 #define __xycfile__xycfile__
 
 #include <stdio.h>
-
 typedef struct{
-    int8_t version;
-    int8_t encoding;
-    int16_t type;
-    int64_t createtime;
-    int64_t updatetime;
-    int8_t password[64];
-    int8_t desc[1024];
-    int8_t uuid[16];
-    int8_t xyc[13];
-    int32_t contentlen;
+    int32_t rawtype;
+    int16_t enctype;
+    int8_t password[16];
+    int32_t rawlen;
 } xycfile_header_t;
 
-typedef struct{
-    int8_t data[4];
-} xycfile_enc_dec_block_t;
-
-typedef  int (*xycfile_enc_dec_func_t)(xycfile_enc_dec_block_t* input, xycfile_enc_dec_block_t* output);
+typedef void(^enc_dec_func_t)(int8_t input[],int8_t output[]);
 
 typedef struct{
-    xycfile_enc_dec_func_t encfunc;
-    xycfile_enc_dec_func_t decfunc;
-    char filepath[1024];
-    FILE *rawfile;
+    enc_dec_func_t encfunc;
+    enc_dec_func_t decfunc;
     xycfile_header_t header;
+    FILE *rawfile;
+    char path[256];
 } xycfile_t;
-int xycfile_open(xycfile_t *file,char *mode);
-int xycfile_close(xycfile_t *file);
-int xycfile_read_header(xycfile_t *file);
+int xycfile_open(xycfile_t *file,char *path,char *mode);
 int xycfile_write_header(xycfile_t *file);
-int xycfile_write(xycfile_t *file,xycfile_enc_dec_block_t *block);
-int xycfile_read(xycfile_t *file,xycfile_enc_dec_block_t *block);
+int xycfile_read_header(xycfile_t *file);
+int xycfile_write(xycfile_t *file,int8_t *buff,int len);
+int xycfile_read(xycfile_t *file,int8_t *buff,int expected);
 #endif /* defined(__xycfile__xycfile__) */
