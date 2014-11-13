@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046D7BB51A15050D00C53166 /* xycfilecript.c in Sources */ = {isa = PBXBuildFile; fileRef = 046D7BB31A15050D00C53166 /* xycfilecript.c */; };
+		046D7BB81A15066100C53166 /* xor.c in Sources */ = {isa = PBXBuildFile; fileRef = 046D7BB61A15066100C53166 /* xor.c */; };
+		046D7BBB1A15067500C53166 /* tea.c in Sources */ = {isa = PBXBuildFile; fileRef = 046D7BB91A15067500C53166 /* tea.c */; };
+		046D7BC01A1506AD00C53166 /* xtea.c in Sources */ = {isa = PBXBuildFile; fileRef = 046D7BBC1A1506AD00C53166 /* xtea.c */; };
+		046D7BC11A1506AD00C53166 /* xxtea.c in Sources */ = {isa = PBXBuildFile; fileRef = 046D7BBE1A1506AD00C53166 /* xxtea.c */; };
 		5554B7F51A0B4B030001A569 /* xycfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 5554B7F31A0B4B030001A569 /* xycfile.c */; };
 		555ACC7C1A075F6D0003A938 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 555ACC7B1A075F6D0003A938 /* main.c */; };
 /* End PBXBuildFile section */
@@ -24,6 +29,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		046D7BB31A15050D00C53166 /* xycfilecript.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xycfilecript.c; sourceTree = "<group>"; };
+		046D7BB41A15050D00C53166 /* xycfilecript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xycfilecript.h; sourceTree = "<group>"; };
+		046D7BB61A15066100C53166 /* xor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xor.c; sourceTree = "<group>"; };
+		046D7BB71A15066100C53166 /* xor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xor.h; sourceTree = "<group>"; };
+		046D7BB91A15067500C53166 /* tea.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tea.c; sourceTree = "<group>"; };
+		046D7BBA1A15067500C53166 /* tea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tea.h; sourceTree = "<group>"; };
+		046D7BBC1A1506AD00C53166 /* xtea.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xtea.c; sourceTree = "<group>"; };
+		046D7BBD1A1506AD00C53166 /* xtea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xtea.h; sourceTree = "<group>"; };
+		046D7BBE1A1506AD00C53166 /* xxtea.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xxtea.c; sourceTree = "<group>"; };
+		046D7BBF1A1506AD00C53166 /* xxtea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xxtea.h; sourceTree = "<group>"; };
 		5540E7991A0229A400BBAFF7 /* xycfile */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xycfile; sourceTree = BUILT_PRODUCTS_DIR; };
 		5554B7F31A0B4B030001A569 /* xycfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xycfile.c; sourceTree = "<group>"; };
 		5554B7F41A0B4B030001A569 /* xycfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xycfile.h; sourceTree = "<group>"; };
@@ -60,9 +75,19 @@
 		5540E79B1A0229A400BBAFF7 /* xycfile */ = {
 			isa = PBXGroup;
 			children = (
+				046D7BBC1A1506AD00C53166 /* xtea.c */,
+				046D7BBD1A1506AD00C53166 /* xtea.h */,
+				046D7BBE1A1506AD00C53166 /* xxtea.c */,
+				046D7BBF1A1506AD00C53166 /* xxtea.h */,
+				046D7BB91A15067500C53166 /* tea.c */,
+				046D7BBA1A15067500C53166 /* tea.h */,
+				046D7BB61A15066100C53166 /* xor.c */,
+				046D7BB71A15066100C53166 /* xor.h */,
 				555ACC7B1A075F6D0003A938 /* main.c */,
 				5554B7F31A0B4B030001A569 /* xycfile.c */,
 				5554B7F41A0B4B030001A569 /* xycfile.h */,
+				046D7BB31A15050D00C53166 /* xycfilecript.c */,
+				046D7BB41A15050D00C53166 /* xycfilecript.h */,
 			);
 			path = xycfile;
 			sourceTree = "<group>";
@@ -123,8 +148,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046D7BB51A15050D00C53166 /* xycfilecript.c in Sources */,
+				046D7BC11A1506AD00C53166 /* xxtea.c in Sources */,
 				5554B7F51A0B4B030001A569 /* xycfile.c in Sources */,
 				555ACC7C1A075F6D0003A938 /* main.c in Sources */,
+				046D7BC01A1506AD00C53166 /* xtea.c in Sources */,
+				046D7BB81A15066100C53166 /* xor.c in Sources */,
+				046D7BBB1A15067500C53166 /* tea.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
