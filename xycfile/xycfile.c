@@ -33,7 +33,8 @@ int xycfile_write(xycfile_t *file,xycfile_block_t *input){
 }
 int xycfile_read(xycfile_t *file,xycfile_block_t *output){
     xycfile_block_t input;
-    if(fread(&input, sizeof(input), 1, file->rawfile)==sizeof(input)){
+    int readlen=(int)fread(&input, 1, sizeof(xycfile_block_t), file->rawfile);
+    if(readlen==sizeof(xycfile_block_t)){
         file->decfunc(&input,output);
         return 0;
     };
